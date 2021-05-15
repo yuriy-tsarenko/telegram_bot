@@ -1,35 +1,36 @@
 package com.telegrambot.DBEntity;
 
+import com.telegrambot.util.DAOEntity;
+import com.telegrambot.util.Repository;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
+
 @Getter
 @Setter
 @Entity
-@Table(name="message_template")
-public class MessageTemplate {
+@Table(name = "message_template")
+public class MessageTemplate extends Repository implements DAOEntity {
     @Id
-    Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
 
-    @Column(name="bot_id")
-    Long botId;
-    @Column(name="description")
-    String description;
+    @Column(name = "bot_id")
+    private Long botId;
+    @Column(name = "description")
+    private String description;
 
-    @Column(name="type")
-    String type;
+    @Column(name = "type")
+    private String type;
 
-    @Column(name="template")
-    Boolean template;
+    @Column(name = "template")
+    private Boolean template;
 
-    @Column(name="created")
-    Date created;
+    @Column(name = "created")
+    private Date created;
 
-    @Column(name="expire_date")
-    Date expireDate;
+    @Column(name = "expire_date")
+    private Date expireDate;
 }

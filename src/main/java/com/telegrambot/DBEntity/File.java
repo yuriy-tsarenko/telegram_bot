@@ -1,44 +1,44 @@
 package com.telegrambot.DBEntity;
 
+import com.telegrambot.util.DAOEntity;
+import com.telegrambot.util.Repository;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 import java.util.Date;
 
 @Setter
 @Getter
 @Entity
 @Table(name = "file")
-public class File {
+public class File extends Repository implements DAOEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
-    Long id;
+    private Long id;
 
     @Column(name = "bot_user_id")
-    Long botUserId;
+    private Long botUserId;
 
     @Column(name = "file_id")
-    String fileId;
+    private String fileId;
 
     @Column(name = "file_unique_id")
-    String fileUnique_id;
+    private String fileUniqueId;
 
     @Column(name = "size")
-    Long size;
+    private Long size;
 
     @Column(name = "file_name")
-    String fileName;
+    private String fileName;
 
     @Column(name = "time_type")
-    Date timeType;
+    private Date timeType;
 
     @Column(name = "file_size")
-    Date fileSize;
+    private Date fileSize;
 
     @Column(name = "file_content")
-    String fileContent;
+    private String fileContent;
 }

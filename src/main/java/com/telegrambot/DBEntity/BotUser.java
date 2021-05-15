@@ -1,45 +1,45 @@
 package com.telegrambot.DBEntity;
 
+import com.telegrambot.util.DAOEntity;
+import com.telegrambot.util.Repository;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Setter
 @Getter
 @Entity
 @Table(name = "bot_user")
-public class BotUser {
+public class BotUser extends Repository implements DAOEntity {
     @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Long id;
 
-    @Column(name="user_id")
+    @Column(name = "user_id")
     String userId;
 
-    @Column(name="first_name")
+    @Column(name = "first_name")
     String firstName;
 
-    @Column(name="is_bot")
+    @Column(name = "is_bot")
     Boolean isBot;
 
-            @Column(name="last_name")
-            String last_name;
+    @Column(name = "last_name")
+    private String lastName;
 
-            @Column(name="user_name")
-            String user_name;
+    @Column(name = "user_name")
+    private String userName;
 
-            @Column(name="language_code")
-            String languageCode;
+    @Column(name = "language_code")
+    private String languageCode;
 
-            @Column(name="can_join_groups")
-            String canJoinGroups;
+    @Column(name = "can_join_groups")
+    private String canJoinGroups;
 
-            @Column(name="can_read_all_group_messages")
-            String readAllGroupMessages;
+    @Column(name = "can_read_all_group_messages")
+    private String readAllGroupMessages;
 
-            @Column(name="support_inline_queries")
-            String supportInlineQueries;
+    @Column(name = "support_inline_queries")
+    private String supportInlineQueries;
 }

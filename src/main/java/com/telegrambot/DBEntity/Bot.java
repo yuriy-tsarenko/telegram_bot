@@ -1,26 +1,30 @@
 package com.telegrambot.DBEntity;
 
+import com.telegrambot.util.DAOEntity;
+import com.telegrambot.util.Repository;
 import lombok.Getter;
 import lombok.Setter;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import javax.persistence.*;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "bot")
-public class Bot {
+public class Bot extends Repository implements DAOEntity {
+
     @Id
-    Long id;
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private Long id;
+
     @Column(name = "bot_name")
-    String botName;
+    private String botName;
 
     @Column(name = "bot_token")
-    String botToken;
+    private String botToken;
 
     @Column(name = "base_url")
-    String baseUrl;
+    private String baseUrl;
+
+
 }
