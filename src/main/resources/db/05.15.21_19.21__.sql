@@ -90,5 +90,6 @@ CREATE TABLE IF NOT EXISTS task
     expire_date date        null,
     primary key (id),
     foreign key (bot_user_id) references bot_user(id)
+
 );
 
