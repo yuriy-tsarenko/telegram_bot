@@ -4,6 +4,7 @@ import com.telegrambot.util.DAOEntity;
 import com.telegrambot.util.Repository;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,6 +13,7 @@ import java.util.Date;
 @Setter
 @Entity
 @Table(name = "message_template")
+@DynamicUpdate
 public class MessageTemplate extends Repository implements DAOEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

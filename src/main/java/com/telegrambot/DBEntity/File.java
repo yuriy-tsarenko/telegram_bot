@@ -4,6 +4,7 @@ import com.telegrambot.util.DAOEntity;
 import com.telegrambot.util.Repository;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
 import java.util.Date;
@@ -12,6 +13,7 @@ import java.util.Date;
 @Getter
 @Entity
 @Table(name = "file")
+@DynamicUpdate
 public class File extends Repository implements DAOEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
