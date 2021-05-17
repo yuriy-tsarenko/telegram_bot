@@ -1,4 +1,4 @@
-package com.telegrambot.DBEntity;
+package com.telegrambot.entity;
 
 import com.telegrambot.util.DAOEntity;
 import com.telegrambot.util.Repository;
@@ -44,4 +44,5 @@ public class BotUser extends Repository implements DAOEntity {
 
     @Column(name = "support_inline_queries")
     private String supportInlineQueries;
+
 }

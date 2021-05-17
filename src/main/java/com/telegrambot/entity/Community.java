@@ -1,4 +1,4 @@
-package com.telegrambot.DBEntity;
+package com.telegrambot.entity;
 
 import com.telegrambot.util.DAOEntity;
 import com.telegrambot.util.Repository;
@@ -11,22 +11,16 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "bot")
+@Table(name = "community")
 @DynamicUpdate
-public class Bot extends Repository implements DAOEntity {
-
+public class Community extends Repository implements DAOEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(name = "bot_name")
-    private String botName;
+    @Column(name = "bot_user_id")
+    private Long botUserId;
 
-    @Column(name = "bot_token")
-    private String botToken;
-
-    @Column(name = "base_url")
-    private String baseUrl;
-
-
+    @Column(name = "bot_chat_id")
+    private Long botChatId;
 }

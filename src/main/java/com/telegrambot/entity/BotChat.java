@@ -1,4 +1,4 @@
-package com.telegrambot.DBEntity;
+package com.telegrambot.entity;
 
 import com.telegrambot.util.DAOEntity;
 import com.telegrambot.util.Repository;
