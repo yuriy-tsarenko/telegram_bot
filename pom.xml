@@ -46,6 +46,11 @@
             <artifactId>telegrambots</artifactId>
             <version>4.8.1</version>
         </dependency>
+        <dependency>
+            <groupId>org.flywaydb</groupId>
+            <artifactId>flyway-core</artifactId>
+            <version>7.9.0</version>
+        </dependency>
     </dependencies>
 
     <build>
