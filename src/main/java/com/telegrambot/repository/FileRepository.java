@@ -1,9 +1,9 @@
 package com.telegrambot.repository;
 
-import com.telegrambot.entity.File;
+import com.telegrambot.entity.FileEntity;
 
-public class FileRepository extends GenericRepository<File> {
+public class FileRepository extends GenericRepository<FileEntity> {
     {
-        init(File.class);
+        init(FileEntity.class);
     }
 }

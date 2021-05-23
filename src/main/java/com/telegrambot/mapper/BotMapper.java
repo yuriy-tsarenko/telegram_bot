@@ -11,6 +11,9 @@ public final class BotMapper {
     public BotEntity mapEntityToDto(BotDto dto) {
         BotEntity botEntity = new BotEntity();
         botEntity.setBotToken(dto.getBotToken());
+        botEntity.setBotName(dto.getBotName());
+        botEntity.setId(dto.getId());
+        botEntity.setBaseUrl(dto.getBaseUrl());
         return botEntity;
     }
 }

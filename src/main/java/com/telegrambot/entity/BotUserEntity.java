@@ -1,7 +1,5 @@
 package com.telegrambot.entity;
 
-import com.telegrambot.util.DAOEntity;
-import com.telegrambot.util.Repository;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
@@ -13,19 +11,19 @@ import javax.persistence.*;
 @Entity
 @Table(name = "bot_user")
 @DynamicUpdate
-public class BotUser extends Repository implements DAOEntity {
+public class BotUserEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "user_id")
-    String userId;
+    private String userId;
 
     @Column(name = "first_name")
-    String firstName;
+    private String firstName;
 
     @Column(name = "is_bot")
-    Boolean isBot;
+    private Boolean isBot;
 
     @Column(name = "last_name")
     private String lastName;

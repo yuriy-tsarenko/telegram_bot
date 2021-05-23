@@ -9,7 +9,7 @@ public class BotServiceIml implements BotService {
 
     @Override
     public void saveBot(BotDto botDto) {
-        botRepository.getAllByName(botDto.getBotNameTest());
+        botRepository.getAllByName(botDto.getBotName());
     }
 
 }
