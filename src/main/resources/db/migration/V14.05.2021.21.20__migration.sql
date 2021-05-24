@@ -1,1 +1,0 @@
-ALTER TABLE file MODIFY COLUMN file_size varchar(255);
