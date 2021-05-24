@@ -1,11 +1,10 @@
 package com.telegrambot;
 
 import com.telegrambot.bot.Bot;
-import com.telegrambot.util.AppEnv;
 import org.flywaydb.core.Flyway;
-import org.telegram.telegrambots.ApiContextInitializer;
 import org.telegram.telegrambots.meta.TelegramBotsApi;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
+import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 
 public class App {
     public static void main(String[] args) {
@@ -14,10 +13,8 @@ public class App {
                 + "?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "change_it").load();
         // Start the migration
         flyway.migrate();
-        AppEnv.init();
-        ApiContextInitializer.init();
-        TelegramBotsApi telegramBotsApi = new TelegramBotsApi();
         try {
+            TelegramBotsApi telegramBotsApi = new TelegramBotsApi(DefaultBotSession.class);
             telegramBotsApi.registerBot(new Bot());
         } catch (TelegramApiException e) {
             e.printStackTrace();

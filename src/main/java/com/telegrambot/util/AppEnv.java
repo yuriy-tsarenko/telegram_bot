@@ -1,20 +1,34 @@
 package com.telegrambot.util;
 
-import java.io.InputStream;
-import java.util.Scanner;
-import java.util.concurrent.ConcurrentHashMap;
+import javax.script.Invocable;
+import javax.script.ScriptEngine;
+import javax.script.ScriptEngineManager;
+import javax.script.ScriptException;
+import java.io.FileInputStream;
+import java.io.IOException;
+import java.util.Properties;
 
-public final class AppEnv {
-    private AppEnv() {
+public class AppEnv {
+
+    private static Properties properties;
+
+    private static void init() throws IOException {
+
+        FileInputStream inputStream = new FileInputStream("bot.properties");
+        properties.load(inputStream);
     }
 
-    private static volatile ConcurrentHashMap<String, Object> properties;
-
-    public static void init() {
-        InputStream inputStream = AppEnv.class.getClassLoader().getResourceAsStream("app.properties");
-        Scanner scanner = new Scanner(inputStream);
-        while (scanner.hasNext()) {
-            System.out.println(scanner.nextLine());
+    //TODO: move code to separate class
+    public static void scriptDemo() {
+        ScriptEngineManager manager = new ScriptEngineManager();
+        ScriptEngine engine = manager.getEngineByName("JavaScript");
+        try {
+            engine.eval("print('Hello, JAVASCRIPT');");
+            Invocable inv = (Invocable) engine;
+//            inv.invokeFunction("");
+        } catch (ScriptException e) {
+            e.printStackTrace();
         }
     }
 }
+
