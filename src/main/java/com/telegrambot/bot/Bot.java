@@ -1,21 +1,26 @@
 package com.telegrambot.bot;
 
 import com.telegrambot.service.BotService;
-import com.telegrambot.service.BotServiceIml;
+import com.telegrambot.service.FileService;
+import lombok.RequiredArgsConstructor;
+import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+@RequiredArgsConstructor
+@Component
 public class Bot extends TelegramLongPollingBot {
 
-    private final BotService botService = new BotServiceIml();
+    private final BotService botService;
 
-    private SendMessage uploadMessage = new SendMessage();
+    private final FileService fileService;
 
     @Override
     public void onUpdateReceived(Update update) {
+        SendMessage uploadMessage = new SendMessage();
         Message message = update.getMessage();
         uploadMessage.setChatId(String.valueOf(message.getChatId()));
         uploadMessage.setText(message.getText());
@@ -33,6 +38,6 @@ public class Bot extends TelegramLongPollingBot {
 
     @Override
     public String getBotToken() {
-        return "change_it";
+        return "1527075170:AAHvyerOIecQUezM9P4dwssTe2E4GwVttgQ";
     }
 }

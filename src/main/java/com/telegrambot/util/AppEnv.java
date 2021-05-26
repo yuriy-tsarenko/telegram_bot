@@ -9,6 +9,9 @@ import java.io.IOException;
 import java.util.Properties;
 
 public class AppEnv {
+    public static void main(String[] args) {
+
+    }
 
     private static Properties properties;
 
