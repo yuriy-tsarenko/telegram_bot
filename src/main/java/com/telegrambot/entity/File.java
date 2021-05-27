@@ -1,7 +1,5 @@
 package com.telegrambot.entity;
 
-import com.telegrambot.util.DAOEntity;
-import com.telegrambot.util.Repository;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
@@ -14,12 +12,15 @@ import java.util.Date;
 @Entity
 @Table(name = "file")
 @DynamicUpdate
-public class File extends Repository implements DAOEntity {
+
+public class File {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
 
+    @ManyToOne (optional=false, cascade=CascadeType.ALL)
+    @JoinColumn (name="bot_user_id")
     @Column(name = "bot_user_id")
     private Long botUserId;
 

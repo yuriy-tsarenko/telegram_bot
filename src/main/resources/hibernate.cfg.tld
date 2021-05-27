@@ -16,16 +16,7 @@
         <!-- SQL dialect -->
         <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
         <property name="hibernate.hbm2ddl.auto">update</property>
-        <!-- задать путь к классам сущнастям  -->
-
         <!--TODO: remove-->
-<!--        <mapping class="com.telegrambot.entity.BotEntity"/>-->
-<!--        <mapping class="com.telegrambot.entity.BotChat"/>-->
-<!--        <mapping class="com.telegrambot.entity.BotUser"/>-->
-<!--        <mapping class="com.telegrambot.entity.Community"/>-->
-<!--        <mapping class="com.telegrambot.entity.File"/>-->
-<!--        <mapping class="com.telegrambot.entity.MessageTemplate"/>-->
-<!--        <mapping class="com.telegrambot.entity.Task"/>-->
 
     </session-factory>
 </hibernate-configuration>
