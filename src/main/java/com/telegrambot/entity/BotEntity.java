@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -29,6 +30,6 @@ public class BotEntity{
 
     @OneToMany
     @JoinColumn(name = "bot")
-    private Set<MessageTemplateEntity> messageTemplateEntitySet;
+    private Set<MessageTemplateEntity> messageTemplateEntitySet = new HashSet<>();
 
 }

@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.HashSet;
 import java.util.Set;
 
 @Getter
@@ -44,5 +45,5 @@ public class BotChatEntity{
     private String bio;
 
     @OneToMany(mappedBy = "bot_chat",cascade = CascadeType.ALL)
-    Set<CommunityEntity> communityEntities;
+    Set<CommunityEntity> communityEntities = new  HashSet<>();
 }
