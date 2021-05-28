@@ -12,10 +12,10 @@ import java.util.Date;
 @Entity
 @Table(name = "file")
 @DynamicUpdate
-public class FileEntity{
+public class FileEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
     private Long id;
 
     @Column(name = "bot_user_id")
@@ -44,5 +44,5 @@ public class FileEntity{
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    BotUserEntity botUserEntity;
+    private BotUserEntity botUserEntity;
 }

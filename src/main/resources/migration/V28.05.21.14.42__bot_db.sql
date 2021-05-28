@@ -1,7 +1,4 @@
-DROP DATABASE if exists bot_itdn;
-CREATE DATABASE IF NOT EXISTS bot_itdn;
-USE bot_itdn;
-CREATE TABLE IF NOT EXISTS bot
+CREATE TABLE IF NOT EXISTS bot_db.bot
 (
     id        bigint auto_increment,
     bot_name  varchar(45) null,
@@ -10,9 +7,10 @@ CREATE TABLE IF NOT EXISTS bot
     primary key(id)
 );
 
-CREATE TABLE IF NOT EXISTS bot_chat
+CREATE TABLE IF NOT EXISTS bot_db.bot_chat
 (
     id                             bigint auto_increment,
+    chat_id                        bigint,
     type                           varchar(45) null,
     title                          varchar(45) null,
     first_name                     varchar(45) null,
@@ -22,10 +20,10 @@ CREATE TABLE IF NOT EXISTS bot_chat
     description                    varchar(45) null,
     invite_link                    varchar(45) null,
     bio                            varchar(45) null,
-        primary key(id)
+    primary key(id)
 );
 
-CREATE TABLE IF NOT EXISTS bot_user
+CREATE TABLE IF NOT EXISTS bot_db.bot_user
 (
     id                          bigint auto_increment,
     user_id                     varchar(45) null,
@@ -40,17 +38,15 @@ CREATE TABLE IF NOT EXISTS bot_user
     primary key(id)
 );
 
-CREATE TABLE IF NOT EXISTS community
+CREATE TABLE IF NOT EXISTS bot_db.community
 (
     id          bigint auto_increment,
     bot_user_id bigint null,
     bot_chat_id bigint null,
-        primary key (id),
-    foreign key (bot_user_id) references bot_user(id),
-    foreign key (bot_chat_id) references bot_chat(id)
+    primary key (id)
 );
 
-CREATE TABLE IF NOT EXISTS file
+CREATE TABLE IF NOT EXISTS bot_db.file
 (
     id             bigint auto_increment,
     bot_user_id    bigint null,
@@ -61,11 +57,10 @@ CREATE TABLE IF NOT EXISTS file
     time_type      int         null,
     file_size      int         null,
     file_content   tinytext    null,
-        primary key (id),
-    foreign key (bot_user_id) references bot_user(id)
+    primary key (id)
 );
 
-CREATE TABLE IF NOT EXISTS message_template
+CREATE TABLE IF NOT EXISTS bot_db.message_template
 (
     id          bigint auto_increment,
     bot_id      bigint      null,
@@ -74,11 +69,10 @@ CREATE TABLE IF NOT EXISTS message_template
     template    tinytext    null,
     created     date        null,
     expire_date date        null,
-        primary key (id),
-    foreign key (bot_id) references bot(id)
+    primary key (id)
 );
 
-CREATE TABLE IF NOT EXISTS task
+CREATE TABLE IF NOT EXISTS bot_db.task
 (
     id          bigint auto_increment,
     bot_user_id bigint      null,
@@ -88,7 +82,5 @@ CREATE TABLE IF NOT EXISTS task
     frequency   varchar(45) null,
     created     date        null,
     expire_date date        null,
-    primary key (id),
-    foreign key (bot_user_id) references bot_user(id)
+    primary key (id)
 );
-

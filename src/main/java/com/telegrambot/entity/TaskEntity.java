@@ -12,7 +12,8 @@ import java.util.Date;
 @Entity
 @Table(name = "task")
 @DynamicUpdate
-public class TaskEntity{
+public class TaskEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -40,6 +41,6 @@ public class TaskEntity{
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    BotUserEntity botUserEntity;
+    private BotUserEntity botUserEntity;
 }
 

@@ -11,7 +11,8 @@ import javax.persistence.*;
 @Entity
 @Table(name = "community")
 @DynamicUpdate
-public class CommunityEntity{
+public class CommunityEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -24,9 +25,9 @@ public class CommunityEntity{
 
     @ManyToOne
     @JoinColumn(name = "user_id")
-    BotUserEntity botUserEntity;
+    private BotUserEntity botUserEntity;
 
     @ManyToOne
     @JoinColumn(name="chat_id")
-    BotChatEntity botChatEntity;
+    private BotChatEntity botChatEntity;
 }

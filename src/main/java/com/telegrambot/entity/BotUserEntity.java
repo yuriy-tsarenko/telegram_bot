@@ -14,6 +14,7 @@ import java.util.Set;
 @Table(name = "bot_user")
 @DynamicUpdate
 public class BotUserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -45,13 +46,13 @@ public class BotUserEntity {
     @Column(name = "support_inline_queries")
     private String supportInlineQueries;
 
-    @OneToMany(mappedBy = "bot_user",cascade = CascadeType.ALL)
-    Set<TaskEntity> taskEntities;
+    @OneToMany(mappedBy = "bot_user_id",cascade = CascadeType.ALL)
+    private Set<TaskEntity> taskEntities;
 
-    @OneToMany(mappedBy = "bot_user",cascade = CascadeType.ALL)
-    Set<CommunityEntity> communityEntities;
+    @OneToMany(mappedBy = "bot_user_id",cascade = CascadeType.ALL)
+    private Set<CommunityEntity> communityEntities;
 
-    @OneToMany(mappedBy = "bot_user",cascade = CascadeType.ALL)
-    Set<FileEntity> fileEntities = new HashSet<>();
+    @OneToMany(mappedBy = "bot_user_id",cascade = CascadeType.ALL)
+    private Set<FileEntity> fileEntities = new HashSet<>();
 
 }

@@ -13,7 +13,7 @@ import java.util.Set;
 @Entity
 @Table(name = "bot")
 @DynamicUpdate
-public class BotEntity{
+public class BotEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,7 +29,7 @@ public class BotEntity{
     private String baseUrl;
 
     @OneToMany
-    @JoinColumn(name = "bot")
+    @JoinColumn(name = "bot_id")
     private Set<MessageTemplateEntity> messageTemplateEntitySet = new HashSet<>();
 
 }

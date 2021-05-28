@@ -13,16 +13,21 @@ import java.util.Set;
 @Entity
 @Table(name = "bot_chat")
 @DynamicUpdate
-public class BotChatEntity{
+public class BotChatEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "chat_id")
+    private Long chatId;
 
     @Column(name = "type")
     private String type;
 
     @Column(name = "title")
     private String title;
+
     @Column(name = "first_name")
     private String firstName;
 
@@ -44,6 +49,6 @@ public class BotChatEntity{
     @Column(name = "bio")
     private String bio;
 
-    @OneToMany(mappedBy = "bot_chat",cascade = CascadeType.ALL)
-    Set<CommunityEntity> communityEntities = new  HashSet<>();
+    @OneToMany(mappedBy = "bot_chat_id", cascade = CascadeType.ALL)
+    private Set<CommunityEntity> communityEntities = new HashSet<>();
 }
