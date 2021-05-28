@@ -1,7 +1,6 @@
 package com.telegrambot.bot;
 
-import com.telegrambot.service.BotService;
-import com.telegrambot.service.FileService;
+import com.telegrambot.service.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -15,8 +14,10 @@ import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 public class Bot extends TelegramLongPollingBot {
 
     private final BotService botService;
-
+    private final BotUserService botUserService;
     private final FileService fileService;
+    private final MessageService messageService;
+    private final TaskService taskService;
 
     @Override
     public void onUpdateReceived(Update update) {

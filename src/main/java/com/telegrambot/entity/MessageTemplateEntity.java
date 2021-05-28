@@ -12,7 +12,7 @@ import java.util.Date;
 @Entity
 @Table(name = "message_template")
 @DynamicUpdate
-public class MessageEntity {
+public class MessageTemplateEntity {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
@@ -33,4 +33,8 @@ public class MessageEntity {
 
     @Column(name = "expire_date")
     private Date expireDate;
+
+    @ManyToOne
+    @JoinColumn(name = "bot_id")
+    BotEntity botEntity;
 }

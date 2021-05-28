@@ -21,4 +21,12 @@ public class CommunityEntity{
 
     @Column(name = "bot_chat_id")
     private Long botChatId;
+
+    @ManyToOne
+    @JoinColumn(name = "bot_user_id")
+    BotUserEntity botUserEntity;
+
+    @ManyToOne
+    @JoinColumn(name="bot_chat_id")
+    BotChatEntity botChatEntity;
 }

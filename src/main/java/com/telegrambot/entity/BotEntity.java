@@ -26,5 +26,9 @@ public class BotEntity{
     @Column(name = "base_url")
     private String baseUrl;
 
+    @OneToMany
+    @JoinColumn(name = "bot_id")
+    private MessageTemplateEntity messageTemplate;
+
 
 }

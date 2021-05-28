@@ -1,15 +1,18 @@
 package com.telegrambot.mapper;
 
 import com.telegrambot.dto.MessageDto;
-import com.telegrambot.entity.MessageEntity;
+import com.telegrambot.entity.MessageTemplateEntity;
+import org.springframework.stereotype.Component;
 
+
+@Component
 public class MessageMapper {
 
     private MessageMapper() {
     }
 
-    public MessageEntity mapEntityToDto(MessageDto dto) {
-        MessageEntity messageEntity = new MessageEntity();
+    public MessageTemplateEntity mapEntityToDto(MessageDto dto) {
+        MessageTemplateEntity messageEntity = new MessageTemplateEntity();
         messageEntity.setBotId(dto.getBotId());
         messageEntity.setCreated(dto.getCreated());
         messageEntity.setDescription(dto.getDescription());

@@ -41,4 +41,7 @@ public class FileEntity{
 
     @Column(name = "file_content")
     private String fileContent;
+    @ManyToOne
+    @JoinColumn(name = "bot_user_id")
+    BotUserEntity botUserEntity;
 }

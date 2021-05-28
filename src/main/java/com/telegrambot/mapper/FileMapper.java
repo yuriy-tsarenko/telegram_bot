@@ -2,7 +2,9 @@ package com.telegrambot.mapper;
 
 import com.telegrambot.dto.FileDto;
 import com.telegrambot.entity.FileEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class FileMapper {
 
     private FileMapper() {

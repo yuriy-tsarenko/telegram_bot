@@ -2,7 +2,9 @@ package com.telegrambot.mapper;
 
 import com.telegrambot.dto.TaskDto;
 import com.telegrambot.entity.TaskEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class TaskMapper {
 
     private TaskMapper() {

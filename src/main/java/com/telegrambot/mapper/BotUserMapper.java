@@ -2,7 +2,9 @@ package com.telegrambot.mapper;
 
 import com.telegrambot.dto.BotUserDto;
 import com.telegrambot.entity.BotUserEntity;
+import org.springframework.stereotype.Component;
 
+@Component
 public class BotUserMapper {
 
     private BotUserMapper() {
