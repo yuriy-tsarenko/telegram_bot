@@ -23,10 +23,10 @@ public class CommunityEntity{
     private Long botChatId;
 
     @ManyToOne
-    @JoinColumn(name = "bot_user_id")
+    @JoinColumn(name = "user_id")
     BotUserEntity botUserEntity;
 
     @ManyToOne
-    @JoinColumn(name="bot_chat_id")
+    @JoinColumn(name="chat_id")
     BotChatEntity botChatEntity;
 }

@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Setter
 @Getter
@@ -42,5 +43,14 @@ public class BotUserEntity {
 
     @Column(name = "support_inline_queries")
     private String supportInlineQueries;
+
+    @OneToMany(mappedBy = "bot_user",cascade = CascadeType.ALL)
+    Set<TaskEntity> taskEntities;
+
+    @OneToMany(mappedBy = "bot_user",cascade = CascadeType.ALL)
+    Set<CommunityEntity> communityEntities;
+
+    @OneToMany(mappedBy = "bot_user",cascade = CascadeType.ALL)
+    Set<FileEntity> fileEntities;
 
 }

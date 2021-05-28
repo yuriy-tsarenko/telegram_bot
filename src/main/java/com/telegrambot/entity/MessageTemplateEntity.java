@@ -35,6 +35,6 @@ public class MessageTemplateEntity {
     private Date expireDate;
 
     @ManyToOne
-    @JoinColumn(name = "bot_id")
+    @JoinColumn(name = "id")
     BotEntity botEntity;
 }

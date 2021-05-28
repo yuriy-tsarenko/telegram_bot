@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -41,4 +42,7 @@ public class BotChatEntity{
 
     @Column(name = "bio")
     private String bio;
+
+    @OneToMany(mappedBy = "bot_chat",cascade = CascadeType.ALL)
+    Set<CommunityEntity> communityEntities;
 }

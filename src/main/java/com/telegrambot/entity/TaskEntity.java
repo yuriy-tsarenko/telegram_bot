@@ -39,7 +39,7 @@ public class TaskEntity{
     private Date expireDate;
 
     @ManyToOne
-    @JoinColumn(name = "bot_user_id")
+    @JoinColumn(name = "user_id")
     BotUserEntity botUserEntity;
 }
 

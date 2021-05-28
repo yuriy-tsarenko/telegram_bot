@@ -5,6 +5,7 @@ import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -27,8 +28,7 @@ public class BotEntity{
     private String baseUrl;
 
     @OneToMany
-    @JoinColumn(name = "bot_id")
-    private MessageTemplateEntity messageTemplate;
-
+    @JoinColumn(name = "bot")
+    private Set<MessageTemplateEntity> messageTemplateEntitySet;
 
 }
