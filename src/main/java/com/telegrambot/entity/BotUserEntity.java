@@ -1,31 +1,32 @@
 package com.telegrambot.entity;
 
-import com.telegrambot.util.DAOEntity;
-import com.telegrambot.util.Repository;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Setter
 @Getter
 @Entity
 @Table(name = "bot_user")
 @DynamicUpdate
-public class BotUser extends Repository implements DAOEntity {
+public class BotUserEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @Column(name = "user_id")
-    String userId;
+    private String userId;
 
     @Column(name = "first_name")
-    String firstName;
+    private String firstName;
 
     @Column(name = "is_bot")
-    Boolean isBot;
+    private Boolean isBot;
 
     @Column(name = "last_name")
     private String lastName;
@@ -44,5 +45,14 @@ public class BotUser extends Repository implements DAOEntity {
 
     @Column(name = "support_inline_queries")
     private String supportInlineQueries;
+
+    @OneToMany(mappedBy = "bot_user_id",cascade = CascadeType.ALL)
+    private Set<TaskEntity> taskEntities;
+
+    @OneToMany(mappedBy = "bot_user_id",cascade = CascadeType.ALL)
+    private Set<CommunityEntity> communityEntities;
+
+    @OneToMany(mappedBy = "bot_user_id",cascade = CascadeType.ALL)
+    private Set<FileEntity> fileEntities = new HashSet<>();
 
 }

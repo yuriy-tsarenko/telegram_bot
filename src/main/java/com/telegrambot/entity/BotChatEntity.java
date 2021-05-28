@@ -1,28 +1,33 @@
 package com.telegrambot.entity;
 
-import com.telegrambot.util.DAOEntity;
-import com.telegrambot.util.Repository;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "bot_chat")
 @DynamicUpdate
-public class BotChat extends Repository implements DAOEntity {
+public class BotChatEntity {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    @Column(name = "chat_id")
+    private Long chatId;
 
     @Column(name = "type")
     private String type;
 
     @Column(name = "title")
     private String title;
+
     @Column(name = "first_name")
     private String firstName;
 
@@ -43,4 +48,7 @@ public class BotChat extends Repository implements DAOEntity {
 
     @Column(name = "bio")
     private String bio;
+
+    @OneToMany(mappedBy = "bot_chat_id", cascade = CascadeType.ALL)
+    private Set<CommunityEntity> communityEntities = new HashSet<>();
 }

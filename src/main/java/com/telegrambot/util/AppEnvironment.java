@@ -8,12 +8,11 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.util.Properties;
 
-public class AppEnv {
+public class AppEnvironment {
 
     private static Properties properties;
 
     private static void init() throws IOException {
-
         FileInputStream inputStream = new FileInputStream("bot.properties");
         properties.load(inputStream);
     }

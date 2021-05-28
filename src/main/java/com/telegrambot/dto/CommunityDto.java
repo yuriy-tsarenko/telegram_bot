@@ -5,13 +5,11 @@ import lombok.Setter;
 
 @Getter
 @Setter
-public class BotDto {
+public class CommunityDto {
 
     private Long id;
 
-    private String botName;
+    private Long botUserId;
 
-    private String botToken;
-
-    private String baseUrl;
+    private Long botChatId;
 }
