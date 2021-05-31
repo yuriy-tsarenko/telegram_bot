@@ -1,11 +1,9 @@
 package com.telegrambot.repository;
 
 import com.telegrambot.entity.FileEntity;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public class FileRepository extends GenericRepository<FileEntity> {
-    {
-        init(FileEntity.class);
-    }
+public interface FileRepository extends JpaRepository<FileEntity, Long> {
 }

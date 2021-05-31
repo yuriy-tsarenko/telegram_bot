@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class FileServiceImpl implements FileService {
 
-    private final FileRepository repository;
+//    private final FileRepository repository;
 
     private final BotService botService;
 }

@@ -1,6 +1,7 @@
 package com.telegrambot.bot;
 
-import com.telegrambot.service.*;
+import com.telegrambot.service.IntegrationService;
+import com.telegrambot.task_type.TaskType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
@@ -9,25 +10,32 @@ import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
 
+import java.io.IOException;
+
 @RequiredArgsConstructor
 @Component
 public class Bot extends TelegramLongPollingBot {
 
-    private final BotService botService;
-    private final BotUserService botUserService;
-    private final FileService fileService;
-    private final MessageService messageService;
-    private final TaskService taskService;
+    private final IntegrationService integrationService;
 
     @Override
     public void onUpdateReceived(Update update) {
-        SendMessage uploadMessage = new SendMessage();
-        Message message = update.getMessage();
-        uploadMessage.setChatId(String.valueOf(message.getChatId()));
-        uploadMessage.setText(message.getText());
         try {
+            SendMessage uploadMessage = new SendMessage();
+            Message message = update.getMessage();
+            uploadMessage.setChatId(String.valueOf(message.getChatId()));
+
+            if (message.getText().equals("/start")) {
+                String greeting = "Привет " + message.getFrom().getFirstName() + "\n";
+                String text = "узнай прогноз погоды, напиши мне название города на английском\n";
+                uploadMessage.setText(greeting + text);
+            } else {
+                String data = integrationService.getData(message.getText(), TaskType.WEATHER_INTEGRATION.getCode());
+                uploadMessage.setText(data);
+            }
+            String commands = "/list";
             execute(uploadMessage);
-        } catch (TelegramApiException e) {
+        } catch (TelegramApiException | IOException | InterruptedException e) {
             e.printStackTrace();
         }
     }

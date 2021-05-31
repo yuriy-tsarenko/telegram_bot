@@ -6,6 +6,9 @@ import org.springframework.stereotype.Service;
 
 @Service
 @RequiredArgsConstructor
-public class BotUserServiceImpl implements BotUserService{
-    BotUserRepository botUserRepository;
+public class BotUserServiceImpl implements BotUserService {
+
+//    private BotUserRepository botUserRepository;
+
+
 }

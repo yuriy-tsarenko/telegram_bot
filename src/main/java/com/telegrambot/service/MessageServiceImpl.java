@@ -9,5 +9,5 @@ import org.springframework.stereotype.Service;
 @AllArgsConstructor
 public class MessageServiceImpl implements MessageService{
 
-    MessageRepository messageRepository;
+//    MessageRepository messageRepository;
 }

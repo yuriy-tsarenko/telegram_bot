@@ -10,16 +10,16 @@ public class TaskMapper {
     private TaskMapper() {
     }
 
-    static public TaskEntity mapEntityToDto(TaskDto dto) {
-        TaskEntity taskEntity = new TaskEntity();
-        taskEntity.setBotUserId(dto.getBotUserId());
-        taskEntity.setCreated(dto.getCreated());
-        taskEntity.setDescription(dto.getDescription());
-        taskEntity.setExpireDate(dto.getExpireDate());
-        taskEntity.setFrequency(dto.getFrequency());
-        taskEntity.setPayload(dto.getPayload());
-        taskEntity.setType(dto.getType());
-        taskEntity.setId(dto.getId());
-        return taskEntity;
+    static public TaskDto mapEntityToDto(TaskEntity entity) {
+        TaskDto dto = new TaskDto();
+        dto.setBotUserId(entity.getBotUserId());
+        dto.setCreated(entity.getCreated());
+        dto.setDescription(entity.getDescription());
+        dto.setExpireDate(entity.getExpireDate());
+        dto.setFrequency(entity.getFrequency());
+        dto.setPayload(entity.getPayload());
+        dto.setType(entity.getType());
+        dto.setId(entity.getId());
+        return dto;
     }
 }

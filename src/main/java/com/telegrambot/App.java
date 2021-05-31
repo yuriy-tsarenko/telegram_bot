@@ -11,10 +11,10 @@ import org.telegram.telegrambots.updatesreceivers.DefaultBotSession;
 public class App {
     public static void main(String[] args) {
 //        TODO: move datasource url to properties file
-        Flyway flyway = Flyway.configure().dataSource("jdbc:mysql://localhost:3306/bot_db"
-                + "?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "change_it").load();
-        // Start the migration
-        flyway.migrate();
+//        Flyway flyway = Flyway.configure().dataSource("jdbc:mysql://localhost:3306/bot_db"
+//                + "?useLegacyDatetimeCode=false&serverTimezone=UTC", "root", "change_it").load();
+//        // Start the migration
+//        flyway.migrate();
         ApplicationContext context = new AnnotationConfigApplicationContext("com.telegrambot");
         Bot bean = context.getBean(Bot.class);
         try {
