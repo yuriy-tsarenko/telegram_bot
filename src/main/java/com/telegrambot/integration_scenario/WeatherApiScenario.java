@@ -37,7 +37,7 @@ public class WeatherApiScenario implements Scenario {
         builder.append("\n");
         builder.append("temperature: " + main.getTemp());
         builder.append("\n");
-        builder.append("feels_like: " + main.getFeels_like());
+        builder.append("feels_like: " + main.getFeelsLike());
         builder.append("\n");
         builder.append("pressure: " + main.getPressure());
         return builder.toString();

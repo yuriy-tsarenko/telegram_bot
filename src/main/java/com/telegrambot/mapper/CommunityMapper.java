@@ -12,8 +12,6 @@ public class CommunityMapper {
 
     public CommunityEntity mapEntityToDto(CommunityDto dto) {
         CommunityEntity communityEntity = new CommunityEntity();
-        communityEntity.setBotChatId(dto.getBotChatId());
-        communityEntity.setBotUserId(dto.getBotUserId());
         communityEntity.setId(dto.getId());
         return communityEntity;
     }

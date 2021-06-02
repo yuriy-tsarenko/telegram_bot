@@ -8,4 +8,6 @@ public class Constants {
     public static final String DB_USERNAME = "db.username";
 
     public static final String DB_TIMEZONE = "db.timezone";
+
+    public static final String DB_DRIVER_NAME = "db.driverClassName";
 }

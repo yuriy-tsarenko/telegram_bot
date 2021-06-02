@@ -2,17 +2,22 @@ package com.telegrambot.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.*;
-import java.util.HashSet;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.Set;
 
 @Setter
 @Getter
 @Entity
 @Table(name = "bot_user")
-@DynamicUpdate
 public class BotUserEntity {
 
     @Id
@@ -46,13 +51,16 @@ public class BotUserEntity {
     @Column(name = "support_inline_queries")
     private String supportInlineQueries;
 
-    @OneToMany(mappedBy = "bot_user_id",cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bot_user_id")
     private Set<TaskEntity> taskEntities;
 
-    @OneToMany(mappedBy = "bot_user_id",cascade = CascadeType.ALL)
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bot_user_id")
     private Set<CommunityEntity> communityEntities;
 
-    @OneToMany(mappedBy = "bot_user_id",cascade = CascadeType.ALL)
-    private Set<FileEntity> fileEntities = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bot_user_id")
+    private Set<FileEntity> fileEntities;
 
 }

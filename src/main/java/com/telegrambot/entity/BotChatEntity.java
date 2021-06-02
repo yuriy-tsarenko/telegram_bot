@@ -2,17 +2,22 @@ package com.telegrambot.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.*;
-import java.util.HashSet;
+import javax.persistence.CascadeType;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.OneToMany;
+import javax.persistence.Table;
 import java.util.Set;
 
 @Getter
 @Setter
 @Entity
 @Table(name = "bot_chat")
-@DynamicUpdate
 public class BotChatEntity {
 
     @Id
@@ -49,6 +54,7 @@ public class BotChatEntity {
     @Column(name = "bio")
     private String bio;
 
-    @OneToMany(mappedBy = "bot_chat_id", cascade = CascadeType.ALL)
-    private Set<CommunityEntity> communityEntities = new HashSet<>();
+    @OneToMany(cascade = CascadeType.ALL)
+    @JoinColumn(name = "bot_chat_id")
+    private Set<CommunityEntity> communityEntities;
 }

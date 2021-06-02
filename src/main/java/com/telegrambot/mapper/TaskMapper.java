@@ -10,9 +10,8 @@ public class TaskMapper {
     private TaskMapper() {
     }
 
-    static public TaskDto mapEntityToDto(TaskEntity entity) {
+    public static TaskDto mapEntityToDto(TaskEntity entity) {
         TaskDto dto = new TaskDto();
-        dto.setBotUserId(entity.getBotUserId());
         dto.setCreated(entity.getCreated());
         dto.setDescription(entity.getDescription());
         dto.setExpireDate(entity.getExpireDate());

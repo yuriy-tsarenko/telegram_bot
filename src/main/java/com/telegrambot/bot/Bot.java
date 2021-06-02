@@ -1,8 +1,11 @@
 package com.telegrambot.bot;
 
+import com.telegrambot.repository.BotRepository;
 import com.telegrambot.service.IntegrationService;
 import com.telegrambot.task_type.TaskType;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;

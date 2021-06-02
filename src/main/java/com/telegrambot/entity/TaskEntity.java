@@ -2,24 +2,25 @@ package com.telegrambot.entity;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.DynamicUpdate;
 
-import javax.persistence.*;
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+import javax.persistence.Table;
 import java.util.Date;
 
 @Setter
 @Getter
 @Entity
 @Table(name = "task")
-@DynamicUpdate
 public class TaskEntity {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
-    @Column(name = "bot_user_id")
-    private Long botUserId;
 
     @Column(name = "description")
     private String description;
@@ -40,7 +41,6 @@ public class TaskEntity {
     private Date expireDate;
 
     @ManyToOne
-    @JoinColumn(name = "user_id")
     private BotUserEntity botUserEntity;
 }
 

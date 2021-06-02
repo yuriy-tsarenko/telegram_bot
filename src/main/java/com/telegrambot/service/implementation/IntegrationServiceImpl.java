@@ -1,7 +1,8 @@
-package com.telegrambot.service;
+package com.telegrambot.service.implementation;
 
 import com.telegrambot.dto.TaskDto;
 import com.telegrambot.integration_scenario.Scenario;
+import com.telegrambot.service.IntegrationService;
 import com.telegrambot.task_type.TaskType;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;

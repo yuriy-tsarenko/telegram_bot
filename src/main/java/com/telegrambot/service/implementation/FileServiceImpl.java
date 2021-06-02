@@ -1,6 +1,8 @@
-package com.telegrambot.service;
+package com.telegrambot.service.implementation;
 
 import com.telegrambot.repository.FileRepository;
+import com.telegrambot.service.BotService;
+import com.telegrambot.service.FileService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
