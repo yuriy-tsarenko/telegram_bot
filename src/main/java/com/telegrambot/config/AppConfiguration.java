@@ -60,7 +60,7 @@ public class AppConfiguration {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setDataSource(dataSource);
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("com.telegrambot");
+        factory.setPackagesToScan("com.telegrambot.repository");
         factory.afterPropertiesSet();
         return factory;
     }
