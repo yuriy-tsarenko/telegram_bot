@@ -2,6 +2,7 @@ package com.telegrambot.mapper;
 
 import com.telegrambot.dto.CommunityDto;
 import com.telegrambot.entity.CommunityEntity;
+import org.checkerframework.checker.units.qual.C;
 import org.springframework.stereotype.Component;
 
 @Component
@@ -10,9 +11,9 @@ public class CommunityMapper {
     private CommunityMapper() {
     }
 
-    public CommunityEntity mapEntityToDto(CommunityDto dto) {
-        CommunityEntity communityEntity = new CommunityEntity();
-        communityEntity.setId(dto.getId());
-        return communityEntity;
+    public CommunityDto mapEntityToDto(CommunityEntity entity) {
+        CommunityDto dto = new CommunityDto();
+        dto.setId(dto.getId());
+        return dto;
     }
 }

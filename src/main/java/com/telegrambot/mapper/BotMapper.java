@@ -10,12 +10,12 @@ public final class BotMapper {
     private BotMapper() {
     }
 
-    public BotEntity mapEntityToDto(BotDto dto) {
-        BotEntity botEntity = new BotEntity();
-        botEntity.setBotToken(dto.getBotToken());
-        botEntity.setBotName(dto.getBotName());
-        botEntity.setId(dto.getId());
-        botEntity.setBaseUrl(dto.getBaseUrl());
-        return botEntity;
+    public BotDto mapEntityToDto(BotEntity entity) {
+        BotDto dto = new BotDto();
+        dto.setBotToken(entity.getBotToken());
+        dto.setBotName(entity.getBotName());
+        dto.setId(entity.getId());
+        dto.setBaseUrl(dto.getBaseUrl());
+        return dto;
     }
 }
