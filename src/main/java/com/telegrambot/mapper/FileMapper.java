@@ -10,17 +10,17 @@ public class FileMapper {
     private FileMapper() {
     }
 
-    public FileEntity mapEntityToDto(FileDto dto) {
-        FileEntity fileEntity = new FileEntity();
-        fileEntity.setBotUserId(dto.getBotUserId());
-        fileEntity.setFileContent(dto.getFileContent());
-        fileEntity.setFileId(dto.getFileId());
-        fileEntity.setFileName(dto.getFileName());
-        fileEntity.setFileSize(dto.getFileSize());
-        fileEntity.setFileUniqueId(dto.getFileUniqueId());
-        fileEntity.setId(dto.getId());
-        fileEntity.setTimeType(dto.getTimeType());
-        fileEntity.setSize(dto.getSize());
-        return fileEntity;
+    public FileDto mapEntityToDto(FileEntity entity) {
+        FileDto dto = new FileDto();
+        dto.setBotUserId(entity.getBotUserId());
+        dto.setFileContent(entity.getFileContent());
+        dto.setFileId(entity.getFileId());
+        dto.setFileName(entity.getFileName());
+        dto.setFileSize(entity.getFileSize());
+        dto.setFileUniqueId(entity.getFileUniqueId());
+        dto.setId(entity.getId());
+        dto.setTimeType(entity.getTimeType());
+        dto.setSize(entity.getSize());
+        return dto;
    }
 }

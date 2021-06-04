@@ -1,5 +1,6 @@
 package com.telegrambot.mapper;
 
+import com.telegrambot.bot.Bot;
 import com.telegrambot.dto.BotDto;
 import com.telegrambot.entity.BotEntity;
 import org.springframework.stereotype.Component;
@@ -10,12 +11,12 @@ public final class BotMapper {
     private BotMapper() {
     }
 
-    public BotEntity mapEntityToDto(BotDto dto) {
-        BotEntity botEntity = new BotEntity();
-        botEntity.setBotToken(dto.getBotToken());
-        botEntity.setBotName(dto.getBotName());
-        botEntity.setId(dto.getId());
-        botEntity.setBaseUrl(dto.getBaseUrl());
-        return botEntity;
+    public BotDto mapEntityToDto(BotEntity entity) {
+        BotDto dto = new BotDto();
+        dto.setBotToken(dto.getBotToken());
+        dto.setBotName(dto.getBotName());
+        dto.setId(dto.getId());
+        dto.setBaseUrl(dto.getBaseUrl());
+        return dto;
     }
 }

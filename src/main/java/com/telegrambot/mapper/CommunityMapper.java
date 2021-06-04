@@ -10,11 +10,11 @@ public class CommunityMapper {
     private CommunityMapper() {
     }
 
-    public CommunityEntity mapEntityToDto(CommunityDto dto) {
-        CommunityEntity communityEntity = new CommunityEntity();
-        communityEntity.setBotChatId(dto.getBotChatId());
-        communityEntity.setBotUserId(dto.getBotUserId());
-        communityEntity.setId(dto.getId());
-        return communityEntity;
+    public CommunityDto mapEntityToDto(CommunityEntity entity) {
+        CommunityDto dto = new CommunityDto();
+        dto.setBotChatId(entity.getBotChatId());
+        dto.setBotUserId(entity.getBotUserId());
+        dto.setId(dto.getId());
+        return dto;
     }
 }

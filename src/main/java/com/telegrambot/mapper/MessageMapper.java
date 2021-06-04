@@ -11,15 +11,15 @@ public class MessageMapper {
     private MessageMapper() {
     }
 
-    public MessageTemplateEntity mapEntityToDto(MessageDto dto) {
-        MessageTemplateEntity messageEntity = new MessageTemplateEntity();
-        messageEntity.setBotId(dto.getBotId());
-        messageEntity.setCreated(dto.getCreated());
-        messageEntity.setDescription(dto.getDescription());
-        messageEntity.setExpireDate(dto.getExpireDate());
-        messageEntity.setId(dto.getId());
-        messageEntity.setType(dto.getType());
-        messageEntity.setTemplate(dto.getTemplate());
-        return  messageEntity;
+    public MessageDto mapEntityToDto(MessageTemplateEntity entity) {
+        MessageDto dto = new MessageDto();
+        dto.setBotId(entity.getBotId());
+        dto.setCreated(entity.getCreated());
+        dto.setDescription(entity.getDescription());
+        dto.setExpireDate(entity.getExpireDate());
+        dto.setId(entity.getId());
+        dto.setType(entity.getType());
+        dto.setTemplate(entity.getTemplate());
+        return  dto;
     }
 }

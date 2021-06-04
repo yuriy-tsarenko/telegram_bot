@@ -1,6 +1,8 @@
 package com.telegrambot.mapper;
 
+import com.telegrambot.dto.BotChatDto;
 import com.telegrambot.dto.BotUserDto;
+import com.telegrambot.entity.BotChatEntity;
 import com.telegrambot.entity.BotUserEntity;
 import org.springframework.stereotype.Component;
 
@@ -10,17 +12,17 @@ public class BotUserMapper {
     private BotUserMapper() {
     }
 
-    public BotUserEntity mapEntityToDto(BotUserDto dto) {
-        BotUserEntity botUserEntity = new BotUserEntity();
-        botUserEntity.setCanJoinGroups(dto.getCanJoinGroups());
-        botUserEntity.setFirstName(dto.getFirstName());
-        botUserEntity.setIsBot(dto.getIsBot());
-        botUserEntity.setLanguageCode(dto.getLanguageCode());
-        botUserEntity.setLastName(dto.getLastName());
-        botUserEntity.setReadAllGroupMessages(dto.getReadAllGroupMessages());
-        botUserEntity.setSupportInlineQueries(dto.getSupportInlineQueries());
-        botUserEntity.setUserId(dto.getUserId());
-        botUserEntity.setId(dto.getId());
-        return botUserEntity;
+    public BotUserDto mapEntityToDto(BotUserEntity entity) {
+        BotUserDto dto = new BotUserDto();
+        dto.setCanJoinGroups(dto.getCanJoinGroups());
+        dto.setFirstName(dto.getFirstName());
+        dto.setIsBot(dto.getIsBot());
+        dto.setLanguageCode(dto.getLanguageCode());
+        dto.setLastName(dto.getLastName());
+        dto.setReadAllGroupMessages(dto.getReadAllGroupMessages());
+        dto.setSupportInlineQueries(dto.getSupportInlineQueries());
+        dto.setUserId(dto.getUserId());
+        dto.setId(dto.getId());
+        return dto;
     }
 }
