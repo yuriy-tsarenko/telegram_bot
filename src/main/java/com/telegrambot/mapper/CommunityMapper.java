@@ -2,7 +2,6 @@ package com.telegrambot.mapper;
 
 import com.telegrambot.dto.CommunityDto;
 import com.telegrambot.entity.CommunityEntity;
-import org.checkerframework.checker.units.qual.C;
 import org.springframework.stereotype.Component;
 
 @Component
