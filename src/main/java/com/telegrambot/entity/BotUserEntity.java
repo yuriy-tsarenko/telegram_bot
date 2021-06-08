@@ -25,7 +25,7 @@ public class BotUserEntity {
     private Long id;
 
     @Column(name = "user_id")
-    private String userId;
+    private Long userId;
 
     @Column(name = "first_name")
     private String firstName;

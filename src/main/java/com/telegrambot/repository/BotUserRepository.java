@@ -6,4 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface BotUserRepository extends JpaRepository<BotUserEntity, Long> {
+    Long findByUserId(Long userId);
 }

@@ -9,7 +9,7 @@ public class BotUserDto {
 
     private Long id;
 
-    private String userId;
+    private Long userId;
 
     private String firstName;
 
