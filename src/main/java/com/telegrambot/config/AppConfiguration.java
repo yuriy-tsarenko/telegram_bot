@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.dao.annotation.PersistenceExceptionTranslationPostProcessor;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.jdbc.datasource.DriverManagerDataSource;
 import org.springframework.orm.jpa.JpaTransactionManager;
 import org.springframework.orm.jpa.JpaVendorAdapter;
@@ -23,7 +24,8 @@ import java.util.Properties;
 
 @Configuration
 @EnableTransactionManagement
-@ComponentScan(basePackages = {"com.telegrambot"})
+@ComponentScan(basePackages = {"com.telegrambot.service", "com.telegrambot.bot", "com.telegrambot.integration_scenario"})
+@EnableJpaRepositories(basePackages = {"com.telegrambot.repository"})
 public class AppConfiguration {
 
     private static final Logger log = Logger.getLogger(AppConfiguration.class);
@@ -60,7 +62,7 @@ public class AppConfiguration {
         LocalContainerEntityManagerFactoryBean factory = new LocalContainerEntityManagerFactoryBean();
         factory.setDataSource(dataSource);
         factory.setJpaVendorAdapter(vendorAdapter);
-        factory.setPackagesToScan("com.telegrambot.repository");
+        factory.setPackagesToScan("com.telegrambot.entity");
         factory.afterPropertiesSet();
         return factory;
     }
