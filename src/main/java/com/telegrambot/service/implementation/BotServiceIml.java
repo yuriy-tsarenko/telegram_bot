@@ -11,9 +11,6 @@ import org.springframework.stereotype.Service;
 @RequiredArgsConstructor
 public class BotServiceIml implements BotService {
 
-//    private final BotRepository botRepository;
-//    private final MessageRepository messageRepository;
-
     @Override
     public void saveBot(BotDto botDto) {
     }

@@ -23,7 +23,7 @@ public class IntegrationServiceImpl implements IntegrationService {
         taskDto.setPayload("4e93111404d9b19df7da2ac71de87af7");
         return taskDto;
     }
-
+@Override
     public String getData(String city, String taskType) throws IOException, InterruptedException {
         return scenario.run(getTaskByType(taskType), city);
     }

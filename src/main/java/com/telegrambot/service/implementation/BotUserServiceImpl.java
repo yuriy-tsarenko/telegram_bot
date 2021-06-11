@@ -22,18 +22,16 @@ public class BotUserServiceImpl implements BotUserService {
 
     @Override
     public Boolean getChatId(Long chatId) {
-        System.out.println("->"+botUserRepository.findByUserId(chatId));
-        return botUserRepository.findByUserId(chatId) == null;
+        return botUserRepository.existsBotUserEntityByUserId(chatId);
     }
 
     @Override
     public BotUserEntity addUser(BotUserEntity botUserEntity) {
-        BotUserEntity saveUser = botUserRepository.saveAndFlush(botUserEntity);
-        return saveUser;
+        return botUserRepository.save(botUserEntity);
     }
 
     @Override
-    public void save(Message message) {
+    public void saveUser(Message message) {
        BotUserEntity  user = new BotUserEntity();
        user.setUserId(message.getChatId());
        user.setFirstName(message.getFrom().getFirstName());

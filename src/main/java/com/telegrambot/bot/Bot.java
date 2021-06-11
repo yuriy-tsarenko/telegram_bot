@@ -12,9 +12,8 @@ import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import org.telegram.telegrambots.meta.exceptions.TelegramApiException;
-
 import java.io.IOException;
-import java.util.List;
+
 
 @RequiredArgsConstructor
 @Component
@@ -29,11 +28,10 @@ public class Bot extends TelegramLongPollingBot {
             SendMessage uploadMessage = new SendMessage();
             Message message = update.getMessage();
             uploadMessage.setChatId(String.valueOf(message.getChatId()));
-            if (botUserService.getChatId(message.getChatId())){
-                botUserService.save(message);
-                System.out.println("new user");
+
+            if (!botUserService.getChatId(message.getChatId())){
+                botUserService.saveUser(message);
                 uploadMessage.setText(message.getFrom().getFirstName()+" вы тут первый раз, привет!");
-                execute(uploadMessage);
             } else if (message.getText().equals("/start")) {
                 System.out.println("start");
                 String greeting = "Привет " + message.getFrom().getFirstName() + "\n";
@@ -43,6 +41,7 @@ public class Bot extends TelegramLongPollingBot {
                 String data = integrationService.getData(message.getText(), TaskType.WEATHER_INTEGRATION.getCode());
                 uploadMessage.setText(data);
             }
+
             String commands = "/list";
             execute(uploadMessage);
         } catch (TelegramApiException | IOException | InterruptedException e) {

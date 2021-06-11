@@ -10,6 +10,6 @@ public interface BotUserService {
     List<BotUserEntity> getAll();
     Boolean getChatId(Long chatId);
     BotUserEntity addUser(BotUserEntity botUserEntity);
-    void save(Message message);
+    void saveUser(Message message);
 
 }
